@@ -22,6 +22,11 @@ export interface PageChangedMessage {
   payload: { url: string; title: string; tabId: number };
 }
 
+export interface RuntimeStateMessage {
+  type: 'RUNTIME_STATE';
+  payload: { sessionId: string; mutationCount: number; isReady: boolean };
+}
+
 // ─── Background → Content ────────────────────────────────────────────────────
 
 export interface ExecuteActionMessage {
@@ -34,8 +39,30 @@ export interface ExtractUIMessage {
   payload: { sessionId: string };
 }
 
+export interface GetStateMessage {
+  type: 'GET_STATE';
+  payload: Record<string, never>;
+}
+
 export interface PingMessage {
   type: 'PING';
+  payload: Record<string, never>;
+}
+
+// ─── External API → Background ───────────────────────────────────────────────
+
+export interface GetUIGraphMessage {
+  type: 'GET_UI_GRAPH';
+  payload: { tabId: number };
+}
+
+export interface ExecuteActionExternalMessage {
+  type: 'EXECUTE_ACTION';
+  payload: { tabId: number; request: ActionRequest };
+}
+
+export interface ListSessionsMessage {
+  type: 'LIST_SESSIONS';
   payload: Record<string, never>;
 }
 
@@ -45,14 +72,48 @@ export type ContentToBackgroundMessage =
   | UIGraphUpdateMessage
   | ActionResultMessage
   | ObserverReadyMessage
-  | PageChangedMessage;
+  | PageChangedMessage
+  | RuntimeStateMessage;
 
-export type BackgroundToContentMessage = ExecuteActionMessage | ExtractUIMessage | PingMessage;
+export type BackgroundToContentMessage =
+  | ExecuteActionMessage
+  | ExtractUIMessage
+  | GetStateMessage
+  | PingMessage;
 
-export type ExtensionMessage = ContentToBackgroundMessage | BackgroundToContentMessage;
+export type ExternalToBackgroundMessage =
+  | GetUIGraphMessage
+  | ExecuteActionExternalMessage
+  | ListSessionsMessage
+  | PingMessage;
+
+export type ExtensionMessage =
+  | ContentToBackgroundMessage
+  | BackgroundToContentMessage
+  | ExternalToBackgroundMessage;
+
+// ─── Response types ───────────────────────────────────────────────────────────
 
 export interface MessageResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: string;
 }
+
+export interface GraphUpdateEvent {
+  type: 'UI_GRAPH_UPDATE';
+  tabId: number;
+  sessionId: string;
+  graph: UIGraph;
+  timestamp: number;
+}
+
+export interface ActionCompletedEvent {
+  type: 'ACTION_COMPLETED';
+  tabId: number;
+  sessionId: string;
+  result: ActionResult;
+  timestamp: number;
+}
+
+export type StreamEvent = GraphUpdateEvent | ActionCompletedEvent;

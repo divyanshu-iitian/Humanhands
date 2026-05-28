@@ -6,6 +6,8 @@ import { EventBus } from '@humanhands/event-system';
 import { healthRoutes } from './routes/health.route.js';
 import { executeRoutes } from './routes/execute.route.js';
 import { extractUIRoutes } from './routes/extract-ui.route.js';
+import { streamRoutes } from './routes/stream.route.js';
+import { graphRoutes } from './routes/graph.route.js';
 
 export interface ServerConfig {
   host?: string;
@@ -62,6 +64,8 @@ export async function buildServer(config: ServerConfig = {}) {
   await app.register(healthRoutes);
   await app.register(async (instance) => executeRoutes(instance, executor));
   await app.register(extractUIRoutes);
+  await app.register(async (instance) => streamRoutes(instance, eventBus));
+  await app.register(graphRoutes);
 
   // ─── Error Handler ────────────────────────────────────────────────────────
 

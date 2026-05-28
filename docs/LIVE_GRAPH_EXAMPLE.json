@@ -1,0 +1,155 @@
+{
+  "_comment": "Example live UIGraph extracted from a login page by the HumanHands runtime",
+  "pageId": "page_login_1bx9k2",
+  "sessionId": "b4c2d8f0-1234-5678-abcd-ef0123456789",
+  "url": "https://app.example.com/login",
+  "title": "Sign In — Example SaaS",
+  "timestamp": 1717100000000,
+  "version": "1",
+  "checksum": "a3f9c2b1",
+  "previousChecksum": null,
+  "metadata": {
+    "url": "https://app.example.com/login",
+    "title": "Sign In — Example SaaS",
+    "viewport": { "width": 1280, "height": 900, "scrollX": 0, "scrollY": 0 },
+    "isLoading": false,
+    "hasModal": false,
+    "totalElementCount": 9,
+    "interactableCount": 5
+  },
+  "rootIds": ["nav_main", "form_login"],
+  "interactableIds": ["link_home", "input_email", "input_password", "button_submit", "link_forgot"],
+  "formIds": ["form_login"],
+  "modalIds": [],
+  "elements": [
+    {
+      "id": "nav_main",
+      "role": "nav",
+      "tagName": "nav",
+      "text": "Home Features Pricing",
+      "selector": { "primary": "nav[aria-label='Main navigation']", "fallbacks": ["nav"], "semantic": "nav[aria-label='Main navigation']" },
+      "visible": true, "enabled": true, "interactable": false,
+      "bounds": { "x": 0, "y": 0, "width": 1280, "height": 64, "top": 0, "right": 1280, "bottom": 64, "left": 0 },
+      "accessibility": { "ariaRole": null, "ariaLabel": "Main navigation", "focusable": false, "keyboardAccessible": false },
+      "attributes": { "aria-label": "Main navigation" },
+      "parentId": null, "childIds": ["link_home"], "depth": 1,
+      "pageId": "page_login_1bx9k2", "extractedAt": 1717100000000
+    },
+    {
+      "id": "link_home",
+      "role": "link",
+      "tagName": "a",
+      "text": "Home",
+      "href": "https://app.example.com/",
+      "selector": { "primary": "a[href='/']", "fallbacks": ["nav a:first-child"] },
+      "visible": true, "enabled": true, "interactable": true,
+      "bounds": { "x": 40, "y": 20, "width": 60, "height": 24, "top": 20, "right": 100, "bottom": 44, "left": 40 },
+      "accessibility": { "focusable": true, "keyboardAccessible": true, "tabIndex": 0 },
+      "attributes": { "href": "/" },
+      "parentId": "nav_main", "childIds": [], "depth": 2,
+      "pageId": "page_login_1bx9k2", "extractedAt": 1717100000000
+    },
+    {
+      "id": "form_login",
+      "role": "form",
+      "tagName": "form",
+      "text": "",
+      "selector": { "primary": "form[aria-label='Login form']", "fallbacks": ["form"], "semantic": "form[aria-label='Login form']" },
+      "visible": true, "enabled": true, "interactable": false,
+      "bounds": { "x": 440, "y": 200, "width": 400, "height": 320, "top": 200, "right": 840, "bottom": 520, "left": 440 },
+      "accessibility": { "ariaLabel": "Login form", "focusable": false, "keyboardAccessible": false },
+      "attributes": { "aria-label": "Login form", "method": "post" },
+      "parentId": null, "childIds": ["input_email", "input_password", "button_submit", "link_forgot"], "depth": 1,
+      "pageId": "page_login_1bx9k2", "extractedAt": 1717100000000
+    },
+    {
+      "id": "input_email",
+      "role": "input",
+      "tagName": "input",
+      "text": "",
+      "placeholder": "Email address",
+      "inputType": "email",
+      "selector": {
+        "primary": "#email",
+        "fallbacks": ["input[type='email']", "[aria-label='Email address']", "input[name='email']"],
+        "semantic": "[aria-label='Email address']"
+      },
+      "visible": true, "enabled": true, "interactable": true,
+      "bounds": { "x": 440, "y": 280, "width": 400, "height": 48, "top": 280, "right": 840, "bottom": 328, "left": 440 },
+      "accessibility": {
+        "ariaLabel": "Email address",
+        "ariaRequired": true,
+        "tabIndex": 0,
+        "focusable": true,
+        "keyboardAccessible": true
+      },
+      "attributes": { "id": "email", "name": "email", "type": "email", "aria-label": "Email address", "aria-required": "true", "autocomplete": "email" },
+      "parentId": "form_login", "childIds": [], "depth": 2,
+      "pageId": "page_login_1bx9k2", "extractedAt": 1717100000000
+    },
+    {
+      "id": "input_password",
+      "role": "input",
+      "tagName": "input",
+      "text": "",
+      "placeholder": "Password",
+      "inputType": "password",
+      "selector": {
+        "primary": "#password",
+        "fallbacks": ["input[type='password']", "input[name='password']"]
+      },
+      "visible": true, "enabled": true, "interactable": true,
+      "bounds": { "x": 440, "y": 348, "width": 400, "height": 48, "top": 348, "right": 840, "bottom": 396, "left": 440 },
+      "accessibility": {
+        "ariaLabel": "Password",
+        "ariaRequired": true,
+        "tabIndex": 0,
+        "focusable": true,
+        "keyboardAccessible": true
+      },
+      "attributes": { "id": "password", "name": "password", "type": "password", "aria-label": "Password", "aria-required": "true", "autocomplete": "current-password" },
+      "parentId": "form_login", "childIds": [], "depth": 2,
+      "pageId": "page_login_1bx9k2", "extractedAt": 1717100000000
+    },
+    {
+      "id": "button_submit",
+      "role": "button",
+      "tagName": "button",
+      "text": "Sign in",
+      "selector": {
+        "primary": "[data-testid='login-submit']",
+        "fallbacks": ["button[type='submit']", "[aria-label='Sign in']"],
+        "dataTestId": "[data-testid='login-submit']"
+      },
+      "visible": true, "enabled": true, "interactable": true,
+      "bounds": { "x": 440, "y": 420, "width": 400, "height": 52, "top": 420, "right": 840, "bottom": 472, "left": 440 },
+      "accessibility": {
+        "ariaRole": "button",
+        "tabIndex": 0,
+        "focusable": true,
+        "keyboardAccessible": true
+      },
+      "attributes": { "data-testid": "login-submit", "type": "submit" },
+      "parentId": "form_login", "childIds": [], "depth": 2,
+      "pageId": "page_login_1bx9k2", "extractedAt": 1717100000000
+    },
+    {
+      "id": "link_forgot",
+      "role": "link",
+      "tagName": "a",
+      "text": "Forgot password?",
+      "href": "https://app.example.com/forgot-password",
+      "selector": {
+        "primary": "[aria-label='Forgot password?']",
+        "fallbacks": ["a[href='/forgot-password']"],
+        "semantic": "[aria-label='Forgot password?']"
+      },
+      "visible": true, "enabled": true, "interactable": true,
+      "bounds": { "x": 440, "y": 488, "width": 160, "height": 20, "top": 488, "right": 600, "bottom": 508, "left": 440 },
+      "accessibility": { "ariaLabel": "Forgot password?", "tabIndex": 0, "focusable": true, "keyboardAccessible": true },
+      "attributes": { "href": "/forgot-password", "aria-label": "Forgot password?" },
+      "parentId": "form_login", "childIds": [], "depth": 2,
+      "pageId": "page_login_1bx9k2", "extractedAt": 1717100000000
+    }
+  ]
+}
