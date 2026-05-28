@@ -1,0 +1,39 @@
+{
+  "name": "@humanhands/extension",
+  "displayName": "HumanHands Browser Runtime",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser extension runtime — converts webpages into structured semantic UI graphs",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "build:prod": "plasmo build --release",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .plasmo build"
+  },
+  "dependencies": {
+    "@humanhands/shared-types": "workspace:*",
+    "@plasmohq/messaging": "^0.6.2",
+    "@plasmohq/storage": "^1.13.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "plasmo": "^0.90.4",
+    "typescript": "^5.6.3",
+    "@types/chrome": "^0.0.278",
+    "@types/node": "^22.9.0"
+  },
+  "manifest": {
+    "name": "HumanHands Browser Runtime",
+    "description": "Deterministic browser automation runtime for AI agents",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "storage",
+      "tabs"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@humanhands/ui-graph",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Structured semantic UI graph — normalizes DOM data into traversable, versionable UI trees",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src/",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@humanhands/shared-types": "workspace:*",
+    "@humanhands/selector-engine": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "@types/node": "^22.9.0"
+  }
+}
