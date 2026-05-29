@@ -3,3 +3,8 @@ export * from './ui-graph.schema.js';
 export * from './action.schema.js';
 export * from './event.schema.js';
 export * from './workflow.schema.js';
+export * from './recording.schema.js';
+export * from './variable.schema.js';
+export * from './validation.schema.js';
+export * from './execution.schema.js';
+export * from './compiled-workflow.schema.js';
